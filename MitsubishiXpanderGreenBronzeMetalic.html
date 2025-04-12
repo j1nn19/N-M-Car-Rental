@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <title>Mitsubishi Green Bronze Metalic</title>
+</head>
+<style>
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: background-color 0.2s ease;
+}
+
+.back-button i {
+    font-size: 24px; 
+}
+
+.back-button:hover {
+    background-color: #f0f0f0;
+}
+.overlay {
+    background: url(images/background.jpg);
+    background-size: cover; 
+    min-height: 100vh;
+    padding: 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+form img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+form input[type="date"] {
+    cursor: pointer;
+}
+
+form button,
+form input[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #c44b0f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover,
+form input[type="submit"]:hover {
+    background-color: #a03e0a;
+}
+
+</style>
+<body>
+    <div class="overlay">
+        <a href="Cars.html" class="back-button">
+            <i class="ri-arrow-left-line"></i>
+          </a>
+    <form id="rental-form" action="https://formspree.io/f/xyzepazn" method="POST">
+        <img src="images/MitsubishiXpanderGreenBronzeMetalic.jpg" alt="Toyota Vios Red">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="name">Age</label>
+        <input type="number" name="age" id="age" required>
+
+        <label for="name">Email</label>
+        <input type="text" name="email" id="email" required>
+   
+        <label for="phone number">Phone Number</label>
+        <input type="tel" name="tel" id="phone" required>
+
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date" required>
+
+        <label for="days">Days:</label>
+        <input type="number" id="days-Mitsubishi-Xpander-Green-Bronze-Metalic" min="1" value="1" oninput="updatePrice('Mitsubishi-Xpander-Green-Bronze-Metalic', 3000)">
+        <p>Total Price: <span id="total-Mitsubishi-Xpander-Green-Bronze-Metalic">₱3000</span></p>
+
+        <label for="car-type">Car</label>
+        <select id="car-type" name="car-type">
+        <option value="Mitsubishi Xpander Green Bronze Metalic">Mitsubishi Xpander Green Bronze Metalic</option>
+        </select>
+        <input type="submit" value="Rent Now">
+
+    </form>
+    </div>
+
+    <script>
+        function updatePrice(carId, pricePerDay) {
+            let daysInput = document.getElementById(`days-${carId}`);
+            let totalPriceElement = document.getElementById(`total-${carId}`);
+            let days = parseInt(daysInput.value) || 1;
+            let totalPrice = days * pricePerDay;
+            totalPriceElement.textContent = `₱${totalPrice}`;
+        }
+
+        function rentCar(carId) {
+            let startDate = document.getElementById(`start-date-${carId}`).value;
+            let days = document.getElementById(`days-${carId}`).value;
+            let availableElement = document.getElementById(`available-${carId}`);
+            let availableCars = parseInt(availableElement.textContent);
+
+            if (!startDate) {
+                alert("⚠️ Please select a start date for your rental.");
+                return;
+            }
+
+            if (availableCars > 0) {
+                availableElement.textContent = availableCars - 1;
+                alert(`✅ Booking confirmed!\nCar: ${carId.replace(/-/g, ' ')}\nStart Date: ${startDate}\nDuration: ${days} days.`);
+            } else {
+                alert(`❌ Sorry, no more ${carId.replace(/-/g, ' ')} cars are available.`);
+            }
+        }
+
+        const form = document.getElementById('rental-form');
+ 
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {'Accept': 'application/json'}
+    });
+
+        if (response.ok) {
+      window.location.href = 'thank-you.html';
+    } else {
+      alert('❌ Submission failed. Please try again.');
+    }
+  });
+    </script>
+</body>
+</html>

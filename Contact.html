@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Contact</title>
+</head>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Syncopate:wght@400;700&display=swap");
+
+:root {
+  --primary-color: #c44b0f;
+  --white: #fff;
+  --text-dark: #222;
+  --header-font: 'Arial', sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url(images/background.jpg);
+  background-size: cover;
+  color: #333;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  z-index: 9;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav__header {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+.nav__logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--header-font);
+  color: var(--white);
+  letter-spacing: -2px;
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  list-style: none;
+  text-decoration: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--primary-color);
+  transition: transform 0.5s;
+  z-index: -1;
+}
+
+.nav__links.open {
+  transform: translateY(100%);
+}
+
+.nav__links a {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.nav__links i {
+  font-size: 1.5rem; 
+}
+
+.nav__links a:hover {
+  color: var(--text-dark);
+}
+
+.nav__btn {
+  display: none;
+}
+
+.contact-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.contact-container:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.contact-details {
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.contact-details h3 {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.contact-details p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.map iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* Contact Form */
+.contact-form {
+  background-color: #f2f2f2;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-group textarea {
+  height: 120px;
+  resize: none;
+}
+
+.send-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #111;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+  background-color: #444;
+}
+
+@media (width > 768px) {
+  nav {
+    position: static;
+    padding: 2rem 1rem 0;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav__header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: transparent;
+  }
+
+  .nav__logo a {
+    color: var(--text-dark);
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    flex-direction: row;
+    position: static;
+    gap: 3rem;
+    padding: 0;
+    margin: 0 auto; 
+    background-color: transparent;
+    transform: none;
+  }
+
+  .nav__links a {
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  .nav__links a:hover {
+    color: var(--primary-color);
+  }
+
+  .nav__btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .nav__btn .btn {
+    background-color: #f5b24d;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    color: var(--text-dark);
+    border: none;
+    cursor: pointer;
+  }
+}
+
+</style>
+<body>
+  <header>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#">N&M Car Rental</a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="Booking.html"><i class="ri-home-4-fill"></i></a></li>
+        <li><a href="Cars.html"><i class="ri-car-fill"></i></a></li>
+        <li><a href="Faqs.html"><i class="ri-question-fill"></i></i></a></li>
+        <li><a href="Contact.html"><i class="ri-contacts-fill"></i></a></li>
+      </ul>
+      <div class="nav__btn">
+      </div>
+    </nav>
+    <div class="contact-container" id="contact">
+        <h2>Contact Us</h2>
+
+        <div class="contact-details">
+            <h3>Call Us</h3>
+            <p>+63 955 698 9218</p>
+            <h3>Email Us</h3>
+            <p>Djnavarro67@gmail.com</p>
+            <h3>Visit Us</h3>
+            <p>421 Concha St., Brgy 70. Tondo, Manila City.</p>
+            <h3>Office Hours</h3>
+            <p>Monday to Friday: 8AM - 11PM</p>
+            <p>Saturday & Sunday: 10AM - 6PM</p>
+        </div>
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.785079748754!2d120.9620263757819!3d14.611315585876342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca75332a2e01%3A0x87555acfbe29346f!2s421%20Concha%20St%2C%20Tondo%2C%20Manila%2C%201012%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1744300478249!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const navLinks = document.getElementById("nav-links");
+
+        menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        });
+    </script>
+</body>
+</html>

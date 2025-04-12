@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>N&M Car Rental</title>
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Syncopate:wght@400;700&display=swap");
+
+:root {
+  --primary-color:  #ff7f50;
+  --primary-color-dark: #d6a04a;
+  --text-dark: #15191d;
+  --text-light: #737373;
+  --extra-light: #e5e5e5;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Syncopate", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+nav.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background-color: var(--primary-color);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.nav__logo a {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: var(--header-font);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+  display: none; 
+}
+
+.nav__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav__links a {
+  color: var(--white);
+  font-size: 1.5rem; 
+  text-decoration: none;
+}
+
+.nav__links a:hover {
+  color: var(--text-dark);
+}
+.nav__links a i {
+  font-size: 1.6rem; 
+}
+
+.overlay {
+  background: url(images/background.jpg);
+  background-size: cover;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 20px 0;
+  color: var(--white);
+}
+
+.car {
+    text-align: center;
+    padding: 20px;
+}
+
+.car-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.car-card {
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    padding: 15px;
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.car-card img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    border-radius: 10px;
+}
+
+.car-card button {
+    background-color: #c44b0f;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.car-card button:hover {
+  background-color: var(--primary-color);
+}
+
+footer {
+  background-color: var(--text-dark);
+}
+
+
+
+.footer__bar {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+@media (width > 540px) {
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+    
+    @media (max-width: 1024px) {
+      .car-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .car-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background: #333;
+      color: white;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+  .nav__menu__btn {
+    display: block; 
+  }
+
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .nav__links.open {
+    display: flex;
+  }
+}
+
+
+@media (min-width: 769px) {
+  .nav__links {
+    display: flex !important;
+  }
+}
+
+
+</style>
+<body>
+  <nav class="navbar">
+    <div class="nav__container">
+      <div class="nav__logo">
+        <a href="#">N&M Car Rental</a>
+      </div>
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="Booking.html"><i class="ri-home-4-fill"></i></a></li>
+      <li><a href="#"><i class="ri-car-fill"></i></a></li>
+      <li><a href="Faqs.html"><i class="ri-question-fill"></i></a></li>
+      <li><a href="Contact.html"><i class="ri-contacts-fill"></i></a></li>
+    </ul>
+  </nav>
+  
+  
+     <br> 
+    <div class="overlay">
+        <div class="car-section">
+            <h2 class="section-title">Pick Your Dream Car</h2>
+    <div class="car-container">
+            <div class="car-card">
+                <img src="images/ToyotaViosBlack.jpg" alt="Toyota Vios Black">
+                <h2>Toyota Vios Black</h2>
+                <p>Seating Capacity: 5 Seater</p>
+                <p>Price per day: ₱2500</p>
+                <p>Available: <span id="available-Toyota-Vios-Black">1</span></p>
+                <a href="ToyotaViosBlack.html">
+                <button onclick="rentCar('Toyota-Vios-Black')">Rent Now</button>
+                </a>
+            </div>
+
+
+            <div class="car-card">
+                <img src="images/ToyotaViosRed.jpg" alt="Toyota Vios Red">
+                <h2>Toyota Vios Red</h2>
+                <p>Seating Capacity: 5 Seater</p>
+                <p>Price per day: ₱2500</p>
+                <p>Available: <span id="available-Toyota-Vios-Red">1</span></p>
+                <a href="ToyotaViosRed.html">
+                <button onclick="rentCar('Toyota-Vios-Red')">Rent Now</button>
+                </a>
+            </div>
+
+            
+            <div class="car-card">
+                <img src="images/ToyotaViosBlackishRed.jpg" alt="Toyota Vios Blackish Red">
+                <h2>Toyota Vios Blackish Red</h2>
+                <p>Seating Capacity: 5 Seater</p>
+                <p>Price per day: ₱2500</p>
+                <p>Available: <span id="available-Toyota-Vios-Brown">1</span></p>
+                <a href="ToyotaViosBlackishRed.html">
+                <button onclick="rentCar('Toyota-Vios-Brown')">Rent Now</button>
+            </a>
+            </div>
+                       
+            <div class="car-card">
+                <img src="images/ToyotaViosGreen.jpg" alt="Toyota Vios Green">
+                <h2>Toyota Vios Green</h2>
+                <p>Seating Capacity: 5 Seater</p>
+                <p>Price per day: ₱2500</p>
+                <p>Available: <span id="available-Toyota-Vios-Green">1</span></p>
+                <a href="ToyotaViosGreen.html">
+                <button onclick="rentCar('Toyota-Vios-Green')">Rent Now</button>
+            </a>
+            </div>
+            
+                                
+            <div class="car-card">
+                <img src="images/ToyotaViosBlue.jpg" alt="Toyota Vios Blue">
+                <h2>Toyota Vios Blue</h2>
+                <p>Seating Capacity: 5 Seater</p>
+                <p>Price per day: ₱2500</p>
+                <p>Available: <span id="available-Toyota-Vios-Blue">1</span></p>
+                <a href="ToyotaViosBlue.html">
+                <button onclick="rentCar('Toyota-Vios-Blue')">Rent Now</button>
+            </a>
+            </div>
+
+            
+            <div class="car-card">
+                <img src="images/MitsubishiXpanderRed.jpg" alt="Mitsubishi Xpander Red">
+                <h2>Mitsubishi Xpander Red</h2>
+                <p>Seating Capacity: 7 Seater</p>
+                <p>Price per day: ₱3000</p>
+                <p>Available: <span id="available-Mitsubishi-Xpander-Red">1</span></p>
+                <a href="MitsubishiXpanderRed.html">
+                <button onclick="rentCar('Mitsubishi-Xpander-Red')">Rent Now</button>
+            </a>
+            </div>
+            
+                        
+            <div class="car-card">
+                <img src="images/MitsubishiXpanderGreenBronzeMetalic.jpg" alt="Mitsubishi Xpander Black">
+                <h2>Mitsubishi Xpander Green Bronze Metalic</h2>
+                <p>Seating Capacity: 7 Seater</p>
+                <p>Price per day: ₱3000</p>
+                <p>Available: <span id="available-Mitsubishi-Xpander-Black">1</span></p>
+                <a href="MitsubishiXpanderGreenBronzeMetalic.html">
+                <button onclick="rentCar('Mitsubishi-Xpander-Black')">Rent Now</button>
+            </a>
+        </div>
+            </div>
+        </div>
+        </form>
+
+        <footer>
+          <div class="footer__bar">
+            Copyright © 2024 N&M Car Rental. All rights reserved.
+          </div>
+        </footer>
+    </div>
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const navLinks = document.getElementById("nav-links");
+
+        menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        });
+
+
+        
+        function updatePrice(carId, pricePerDay) {
+            let daysInput = document.getElementById(`days-${carId}`);
+            let totalPriceElement = document.getElementById(`total-${carId}`);
+            let days = parseInt(daysInput.value) || 1;
+            let totalPrice = days * pricePerDay;
+            totalPriceElement.textContent = `₱${totalPrice}`;
+        }
+
+        function rentCar(carId) {
+            let startDate = document.getElementById(`start-date-${carId}`).value;
+            let days = document.getElementById(`days-${carId}`).value;
+            let availableElement = document.getElementById(`available-${carId}`);
+            let availableCars = parseInt(availableElement.textContent);
+
+            if (!startDate) {
+                alert("⚠️ Please select a start date for your rental.");
+                return;
+            }
+
+            if (availableCars > 0) {
+                availableElement.textContent = availableCars - 1;
+                alert(`✅ Booking confirmed!\nCar: ${carId.replace(/-/g, ' ')}\nStart Date: ${startDate}\nDuration: ${days} days.`);
+            } else {
+                alert(`❌ Sorry, no more ${carId.replace(/-/g, ' ')} cars are available.`);
+            }
+        }
+    </script>
+</body>
+</html>

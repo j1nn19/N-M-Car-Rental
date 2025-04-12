@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>FREQUENTLY ASKED QUESTION</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Syncopate:wght@400;700&display=swap");
+
+:root {
+    --primary-color:#ff7f50;
+    --primary-color-dark: #d6a04a;
+    --text-dark: hsl(210, 16%, 10%);
+    --text-light: #c4c4c4;
+    --extra-light: #e5e5e5;
+    --white: #ffffff;
+    --max-width: 1200px;
+    --header-font: "Syncopate", sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  z-index: 9;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav__header {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+.nav__logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--header-font);
+  color: var(--white);
+  letter-spacing: -2px;
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  list-style: none;
+  text-decoration: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--primary-color);
+  transition: transform 0.5s;
+  z-index: -1;
+}
+
+.nav__links.open {
+  transform: translateY(100%);
+}
+
+.nav__links a {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.nav__links i {
+  font-size: 1.5rem; 
+}
+
+.nav__links a:hover {
+  color: var(--text-dark);
+}
+
+.nav__btn {
+  display: none;
+}
+
+
+
+.container{
+    min-height: 100vh;
+    width: 100vw;
+    background: url(images/background.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20%;
+    overflow-x: hidden;
+    padding-top: 100px;
+}
+
+h1{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.ques{
+    background-color: transparent;
+    padding: 30px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.ques:hover{
+    background-color: var(--extra-light);
+}
+
+.ans{
+    max-height: 0px;
+    width: 100%;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+}
+
+.faq-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq.active .ans{
+    max-height: 300px;
+}
+
+.ans p{
+    background-color: var(--text-light);
+    padding: 30px;
+    font-size: 25px;
+    border-top: 2px solid #000;
+}
+
+.back-home {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: var(--text-light);
+} 
+
+@media screen and (min-width: 768px){
+    nav {
+      padding: 2rem 1rem 0;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  
+    .nav__header {
+      flex: 1;
+      padding: 0;
+      background-color: transparent;
+    }
+  
+    .nav__logo a {
+      color: var(--text-dark);
+    }
+  
+    .nav__menu__btn {
+      display: none;
+    }
+  
+    .nav__links {
+      position: static;
+      padding: 0;
+      width: fit-content;
+      flex-direction: row;
+      background-color: transparent;
+      transform: none;
+    }
+  
+    .nav__links a {
+      color: var(--text-dark);
+    }
+  
+    .nav__links i {
+      font-size: 1.75rem;
+    }
+  
+    .nav__links a:hover {
+      color: var(--primary-color);
+    }
+  
+    .nav__btn {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  
+    .nav__btn .btn {
+      color: var(--text-dark);
+      background-color: var(--primary-color);
+    }
+  
+  
+  }
+
+</style>
+<body>
+
+    <header>
+        <nav>
+          <div class="nav__header">
+            <div class="nav__logo">
+              <a href="#">N&M Car Rental</a>
+            </div>
+            <div class="nav__menu__btn" id="menu-btn">
+              <i class="ri-menu-line"></i>
+            </div>
+          </div>
+          <ul class="nav__links" id="nav-links">
+            <li><a href="Booking.html"><i class="ri-home-4-fill"></i></a></li>
+            <li><a href="Cars.html"><i class="ri-car-fill"></i></a></li>
+            <li><a href="Faqs.html"><i class="ri-question-fill"></i></i></a></li>
+            <li><a href="Contact.html"><i class="ri-contacts-fill"></i></a></li>
+          </ul>
+          <div class="nav__btn">
+          </div>
+        </nav>
+
+<div class="container">
+    <h1>Frequently Asked Question</h1>
+    <div class="faq-list">
+        <div class="faq">
+            <div class="ques">
+                <p>How do I book a car with N&M Car Rental?</p><i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="ans">
+                <p>You can book a car through our website, by calling us, or by visiting our rental location. 
+                    Simply choose your desired vehicle, select your rental period, and provide the necessary details to confirm your booking.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="ques">
+                <p> What are the requirements to rent a car?</p><i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="ans">
+                <p>To rent a car, you must have a valid driver’s license, be at least 20 years old above, and provide a valid credit or debit card for payment and security deposit.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="ques">
+                <p>Do you offer airport pickup and drop-off services?</p><i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="ans">
+                <p>Yes! We provide convenient airport pickup and drop-off services. Please inform us at the time of booking so we can arrange it for you.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="ques">
+                <p>Is there a mileage limit on rentals?</p><i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="ans">
+                <p>Some of our rentals include unlimited mileage, while others have a mileage cap. Please check the terms of your specific rental or contact us for details.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="ques">
+                <p>What is included in the rental price?</p><i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="ans">
+                <p>The rental price includes the base rental fee, standard insurance, and basic roadside assistance. Additional services such as GPS, child seats, or extra insurance coverage may come at an extra cost.</p>
+            </div>
+</div>
+
+
+
+
+
+
+
+    <script src="asset/Faqs.js"></script>
+</body>
+</html>
